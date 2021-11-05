@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  - values = [{Mobilename: 'Motorola', country: 'usa', releasedYear: 1991}, {Mobilename: 'Lenovo', country: 'china', releasedYear: 2011},
+    {Mobilename: 'Apple', country: 'usa', releasedYear: 2007}]
+  div(class="container-fluid")
+      each item,index in values
+        div(class="row" onclick=`buy(${index})`)
+          div(class="col-sm-2")  #{item.Mobilename}
+          div(class="col-sm-2")  #{item.country}
+          div(class="col-sm-2")  #{item.releasedYear}
+  script.
+
+     function buy(itemNo)
+     {
+       alert(`You purchased Item ${itemNo+1}`)
+     }
